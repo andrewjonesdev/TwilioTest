@@ -7,15 +7,16 @@ import com.twilio.type.PhoneNumber;
 
 public class TwilioTest {
 // Find your Account Sid and Token at twilio.com/user/account
-public static final String ACCOUNT_SID = "ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
-public static final String AUTH_TOKEN = "your_auth_token";
+public static final String ACCOUNT_SID = "AC3e674863086b91d4a48885977cd375cc";
+public static final String AUTH_TOKEN = "935959939532b59a79a49ae9046f60ea";
 
 public static void main(String[] args) {
  Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
 
- Message message = Message.creator(new PhoneNumber("+15558675309"),
-     new PhoneNumber("+15017250604"), "This is the ship that made the Kessel Run in fourteen parsecs?").create();
+ Message message = Message.creator(new PhoneNumber("+17033045506"), new PhoneNumber("+17032935022"), "Sup Andrew. Testing Twilio").create();
 
  System.out.println(message.getSid());
+ Message messageInc = Message.fetcher(message.getSid()).fetch();
+ System.out.println(messageInc.getBody());
 }
 }
